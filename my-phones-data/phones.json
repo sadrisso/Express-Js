@@ -1,0 +1,102 @@
+[
+    {
+      "id": 1,
+      "brand": "PhoneX",
+      "model": "Alpha 12",
+      "price": 799,
+      "storage": "128GB",
+      "ram": "8GB",
+      "color": "Black",
+      "rating": 4.5
+    },
+    {
+      "id": 2,
+      "brand": "TechWave",
+      "model": "Wave Z5",
+      "price": 699,
+      "storage": "256GB",
+      "ram": "12GB",
+      "color": "Silver",
+      "rating": 4.7
+    },
+    {
+      "id": 3,
+      "brand": "GigaPhone",
+      "model": "Max Ultra",
+      "price": 999,
+      "storage": "512GB",
+      "ram": "16GB",
+      "color": "Blue",
+      "rating": 4.8
+    },
+    {
+      "id": 4,
+      "brand": "SmartTalk",
+      "model": "Lite A1",
+      "price": 399,
+      "storage": "64GB",
+      "ram": "4GB",
+      "color": "White",
+      "rating": 4.2
+    },
+    {
+      "id": 5,
+      "brand": "PrimeMob",
+      "model": "Pro M9",
+      "price": 549,
+      "storage": "128GB",
+      "ram": "6GB",
+      "color": "Red",
+      "rating": 4.3
+    },
+    {
+      "id": 6,
+      "brand": "NextCell",
+      "model": "Xtreme S10",
+      "price": 899,
+      "storage": "256GB",
+      "ram": "12GB",
+      "color": "Green",
+      "rating": 4.6
+    },
+    {
+      "id": 7,
+      "brand": "MegaPhone",
+      "model": "Ultra K11",
+      "price": 1199,
+      "storage": "1TB",
+      "ram": "16GB",
+      "color": "Gold",
+      "rating": 4.9
+    },
+    {
+      "id": 8,
+      "brand": "CloudCell",
+      "model": "Storm X3",
+      "price": 299,
+      "storage": "32GB",
+      "ram": "3GB",
+      "color": "Purple",
+      "rating": 4.0
+    },
+    {
+      "id": 9,
+      "brand": "ElitePhone",
+      "model": "Edge 5G",
+      "price": 799,
+      "storage": "256GB",
+      "ram": "8GB",
+      "color": "Black",
+      "rating": 4.5
+    },
+    {
+      "id": 10,
+      "brand": "UltraTech",
+      "model": "Nova V20",
+      "price": 649,
+      "storage": "128GB",
+      "ram": "6GB",
+      "color": "Gray",
+      "rating": 4.4
+    }
+  ]
