@@ -29,6 +29,13 @@ function App() {
       },
       body: JSON.stringify(user)
     })
+    .then((res) => res.json())
+    .then((data) => {
+      console.log(data)
+      form.reset()
+      const newUser = [...users, data];
+      setUsers(newUser)
+    })
   }
 
   return (
