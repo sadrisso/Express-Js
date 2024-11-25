@@ -8,9 +8,8 @@ const Users = () => {
     const [users, setUsers] = useState(data)
 
     const handleRemove = (id) => {
-        console.log(id)
 
-        fetch(`http://localhost:8000/users/${id}`, {
+        fetch(`http://localhost:5000/users/${id}`, {
             method: "DELETE"
         })
             .then((res) => res.json())

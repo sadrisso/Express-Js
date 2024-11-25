@@ -16,21 +16,21 @@ function App() {
     }
 
 
-    fetch("http://localhost:8000/users", {
+    fetch("http://localhost:5000/users", {
       method: "POST",
       headers: {
         "content-type": "application/json"
       },
       body: JSON.stringify(user)
     })
-    .then((res) => res.json())
-    .then((data) => {
-      console.log(data)
-      if (data?.insertedId) {
-        alert("User added successfully")
-        form.reset()
-      }
-    })
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data)
+        if (data?.insertedId) {
+          alert("User added successfully")
+          form.reset()
+        }
+      })
   }
 
   return (
