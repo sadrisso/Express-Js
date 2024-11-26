@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import Swal from 'sweetalert2'
 
 const AddCoffee = () => {
@@ -13,8 +14,9 @@ const AddCoffee = () => {
         const taste = form.taste.value;
         const category = form.category.value;
         const details = form.details.value;
+        const photo = form.photoUrl.value;
 
-        const newCoffee = { name, quantity, supplier, taste, category, details }
+        const newCoffee = { name, quantity, supplier, taste, category, details, photo }
         console.log(newCoffee)
 
 
@@ -46,6 +48,7 @@ const AddCoffee = () => {
                 <h1 className="text-center text-3xl font-semibold mb-3">Add New Coffee</h1>
                 <p className="mx-auto text-center w-2/3">quas quo deleniti maiores illum, asperiores necessitatibus doloremque sequi, inventore possimus maxime ut aut cum praesentium debitis consectetur!</p>
             </div>
+            <div className='text-left text-blue-600 underline'><Link to="/">Home</Link></div>
             <form className="card-body w-full md:w-[600px] mx-auto rounded-xl border border-black bg-base-200 p-5 md:p-10 mt-5 md:mt-10"
                 onSubmit={handleSubmit}
             >
