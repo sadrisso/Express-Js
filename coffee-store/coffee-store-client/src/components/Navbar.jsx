@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 
 const Navbar = () => {
 
-    const links = <div className="flex bg-blue-900 text-white rounded-md">
+    const links = <div className="flex">
         <Link to="/"><li><a>Home</a></li></Link>
         <Link to="/addCoffee"><li><a>Add Coffee</a></li></Link>
         <Link to="/"><li><a>About</a></li></Link>
@@ -11,7 +11,7 @@ const Navbar = () => {
 
     return (
         <div>
-            <div className="navbar bg-base-100">
+            <div className="navbar bg-blue-800 text-white rounded-lg">
                 <div className="navbar-start">
                     <div className="dropdown">
                         <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">

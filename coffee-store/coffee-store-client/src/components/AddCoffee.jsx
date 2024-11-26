@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
 import Swal from 'sweetalert2'
+import Navbar from './Navbar';
 
 const AddCoffee = () => {
 
@@ -36,20 +37,20 @@ const AddCoffee = () => {
                         text: 'Coffee added successfully',
                         icon: 'success',
                         confirmButtonText: 'close'
-                      })
+                    })
                 }
             })
     }
 
 
     return (
-        <div>
-            <div>
-                <h1 className="text-center text-3xl font-semibold mb-3">Add New Coffee</h1>
+        <div className=''>
+            <Navbar />
+            <div className='mt-10 '>
+                <h1 className="text-center text-4xl font-semibold my-3">Add New Coffee</h1>
                 <p className="mx-auto text-center w-2/3">quas quo deleniti maiores illum, asperiores necessitatibus doloremque sequi, inventore possimus maxime ut aut cum praesentium debitis consectetur!</p>
             </div>
-            <div className='text-left text-blue-600 underline'><Link to="/">Home</Link></div>
-            <form className="card-body w-full md:w-[600px] mx-auto rounded-xl border border-black bg-base-200 p-5 md:p-10 mt-5 md:mt-10"
+            <form className="card-body w-full md:w-[550px] mx-auto rounded-xl border border-black bg-base-200 p-5 md:p-10 mt-5 md:mt-10"
                 onSubmit={handleSubmit}
             >
                 <div className="flex justify-between">
@@ -100,8 +101,8 @@ const AddCoffee = () => {
                     </label>
                     <input type="text" placeholder="photo url" name="photoUrl" className="input input-bordered w-full" />
                 </div>
-                <div className="form-control mt-6 w-[520px] mx-auto">
-                    <button className="btn border border-black">Add Coffee</button>
+                <div className="form-control mt-6 w-[400px] mx-auto">
+                    <button className="btn border btn-info">Add Coffee</button>
                 </div>
             </form>
         </div>

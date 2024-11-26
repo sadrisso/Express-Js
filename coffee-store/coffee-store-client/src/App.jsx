@@ -2,6 +2,7 @@
 import { useLoaderData } from 'react-router-dom'
 import './App.css'
 import Navbar from './components/Navbar'
+import CoffeeCard from './components/CoffeeCard';
 
 function App() {
 
@@ -15,23 +16,8 @@ function App() {
       <p className='mb-5'>praesentium non odit veritatis reprehenderit eaque! Lorem ipsum dolor sit amet consectetur adipisicing elit. Et, praesentium non odit veritatis reprehenderit eaque!</p>
       <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3'>
         {
-          allCoffees.map((coffee) =>
-            <div className="card bg-base-100 border m-3">
-              <figure className="px-10 pt-10">
-                <img
-                  src={coffee.photo}
-                  alt="Shoes"
-                  className="rounded-xl" />
-              </figure>
-              <div className="card-body items-center text-center">
-                <h2 className="card-title">{coffee.name}</h2>
-                <p>{coffee.details}</p>
-                <div className="card-actions">
-                  <button className="btn btn-primary">Buy Now</button>
-                </div>
-              </div>
-            </div>
-          )}
+          allCoffees.map((coffee, i) => <CoffeeCard coffee={coffee} key={i}/>)
+        }
       </div>
     </>
   )
