@@ -1,5 +1,6 @@
 const express = require('express');
 const cors = require('cors');
+require('dotenv').config()
 const { MongoClient, ServerApiVersion } = require('mongodb');
 const port = process.env.PORT || 4000;
 const app = express()
@@ -8,10 +9,8 @@ const app = express()
 app.use(cors());
 app.use(express.json());
 
-// 0S9u8iO3QhU9VKrA
 
-
-const uri = "mongodb+srv://teaMaster:0S9u8iO3QhU9VKrA@cluster0.oq68b.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0";
+const uri = `mongodb+srv://${process.env.NAME}:${process.env.PASS}@cluster0.oq68b.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0`;
 
 // Create a MongoClient with a MongoClientOptions object to set the Stable API version
 const client = new MongoClient(uri, {
@@ -28,6 +27,12 @@ async function run() {
     await client.connect();
 
     const teaCollection = client.db("teaDb").collection("teas")
+
+    app.get("/teas", async (req, res) => {
+        const cursor = teaCollection.find()
+        const result = await cursor.toArray()
+        res.send(result)
+    })
 
     app.post("/teas", async (req, res) => {
         const teas = req.body;
