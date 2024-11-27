@@ -28,6 +28,11 @@ async function run() {
 
     const milkCollection = client.db("milksDB").collection("milks");
 
+    app.get("/milks", async (req, res) => {
+        const cursor = milkCollection.find()
+        const result = await cursor.toArray();
+        res.send(result)
+    })
 
     app.post("/milks", async(req, res) => {
         const milks = req.body;
