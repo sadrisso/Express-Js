@@ -5,6 +5,7 @@ import { createBrowserRouter, RouterProvider, } from "react-router-dom";
 import MainLayout from './layout/MainLayout.jsx';
 import Home from './components/Home.jsx';
 import AddTeas from './components/AddTeas.jsx';
+import UpdateTea from './components/UpdateTea.jsx';
 
 const router = createBrowserRouter([
   {
@@ -13,11 +14,17 @@ const router = createBrowserRouter([
     children: [
       {
         path: "/",
-        element: <Home />
+        element: <Home />,
+        loader: () => fetch("http://localhost:4000/teas")
       },
       {
         path: "/addTeas",
         element: <AddTeas />
+      },
+      {
+        path: "/teas/:id",
+        element: <UpdateTea />,
+        loader: ({params}) => fetch(`http://localhost:4000/teas/${params.id}`)
       }
     ]
   },
