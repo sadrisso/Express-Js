@@ -9,7 +9,7 @@ const Home = () => {
 
     return (
         <div className='grid grid-cols-1 md:grid-cols-3 gap-5 my-10'>
-            {milks.map((milk, i) => <MilkCard milk={milk} key={i} />)}
+            {/* {milks?.map((milk, i) => <MilkCard milk={milk} key={i} />)} */}
         </div>
     )
 }
