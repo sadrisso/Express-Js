@@ -32,9 +32,10 @@ async function run() {
         res.send("hi")
     })
 
-    app.post("/drinks", (req, res) => {
+    app.post("/drinks", async (req, res) => {
         const drinks = req.body;
-        console.log(drinks)
+        const result = await drinksCollection.insertOne(drinks)
+        res.send(result)
     })
 
     // Send a ping to confirm a successful connection

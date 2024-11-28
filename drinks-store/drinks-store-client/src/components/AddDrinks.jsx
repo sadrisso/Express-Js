@@ -9,7 +9,7 @@ const AddDrinks = () => {
         const drinkName = form.drinkName.value;
         const description = form.description.value;
 
-        const drinks = {drinkName, description}
+        const drinks = { drinkName, description }
         console.log(drinks)
 
         fetch("http://localhost:9000/drinks", {
@@ -19,6 +19,14 @@ const AddDrinks = () => {
             },
             body: JSON.stringify(drinks)
         })
+            .then(res => res.json())
+            .then(data => {
+                console.log(data)
+                if (data.insertedId) {
+                    alert("Drinks added successfully!")
+                }
+                form.reset();
+            })
     }
     return (
         <div>
