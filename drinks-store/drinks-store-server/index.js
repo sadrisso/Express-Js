@@ -26,7 +26,16 @@ async function run() {
     // Connect the client to the server	(optional starting in v4.7)
     await client.connect();
 
+    const drinksCollection = client.db("drinksDB").collection("drinks");
 
+    app.get("/drinks", (req, res) => {
+        res.send("hi")
+    })
+
+    app.post("/drinks", (req, res) => {
+        const drinks = req.body;
+        console.log(drinks)
+    })
 
     // Send a ping to confirm a successful connection
     await client.db("admin").command({ ping: 1 });
