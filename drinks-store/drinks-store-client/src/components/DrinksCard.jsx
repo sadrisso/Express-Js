@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 
 
 const DrinksCard = ({ drink }) => {
@@ -31,7 +32,7 @@ const DrinksCard = ({ drink }) => {
                     <h2 className="card-title text-xl font-bold">{drinkName}</h2>
                     <p>{description}</p>
                     <div className="card-actions justify-end">
-                        <button className="btn btn-primary">Edit</button>
+                        <Link to={`/drinks/${_id}`}><button className="btn btn-primary">Edit</button></Link>
                         <button className="btn btn-error" onClick={() => handleRemove(_id)}>Delete</button>
                     </div>
                 </div>

@@ -34,9 +34,33 @@ async function run() {
         res.send(result)
     })
 
+    app.get("/drinks/:id", async (req, res) => {
+        const id = req.params.id;
+        const filter = {_id: new ObjectId(id)}
+        const result = await drinksCollection.findOne(filter)
+        res.send(result)
+    })
+
     app.post("/drinks", async (req, res) => {
         const drinks = req.body;
         const result = await drinksCollection.insertOne(drinks)
+        res.send(result)
+    })
+
+    app.put("/drinks/:id", async (req, res) => {
+        const id = req.params.id;
+        const filter = {_id: new ObjectId(id)};
+        const updateInfo = req.body;
+        const options = { upsert: true };
+
+        const updateDoc = {
+            $set: {
+                drinkName: updateInfo.drinkName,
+                description: updateInfo.description
+            }
+        }
+
+        const result = await drinksCollection.updateOne(filter, updateDoc, options)
         res.send(result)
     })
 
