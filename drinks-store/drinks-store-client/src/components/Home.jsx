@@ -8,7 +8,7 @@ const Home = () => {
 
     return (
         <div>
-            <h1 className='text-3xl text-center font-semibold mb-5'>Popular Drinks</h1>
+            <h1 className='text-3xl text-center font-bold mb-8'>Popular Drinks</h1>
             <div className='grid grid-cols-1 md:grid-cols-3 gap-3'>
                 {
                     drinks.map((drink, i) => <DrinksCard key={i} drink={drink} />)
