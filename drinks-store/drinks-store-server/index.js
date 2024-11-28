@@ -28,8 +28,10 @@ async function run() {
 
     const drinksCollection = client.db("drinksDB").collection("drinks");
 
-    app.get("/drinks", (req, res) => {
-        res.send("hi")
+    app.get("/drinks", async (req, res) => {
+        const quary = drinksCollection.find()
+        const result = await quary.toArray()
+        res.send(result)
     })
 
     app.post("/drinks", async (req, res) => {
