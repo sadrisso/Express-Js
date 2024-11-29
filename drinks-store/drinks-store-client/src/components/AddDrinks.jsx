@@ -1,6 +1,10 @@
+import { useNavigate } from "react-router-dom";
+import Swal from "sweetalert2";
 
 
 const AddDrinks = () => {
+
+    const navigate = useNavigate()
 
     const handleSubmit = e => {
         e.preventDefault()
@@ -23,9 +27,15 @@ const AddDrinks = () => {
             .then(data => {
                 console.log(data)
                 if (data.insertedId) {
-                    alert("Drinks added successfully!")
+                    Swal.fire({
+                        position: "top-end",
+                        icon: "success",
+                        title: "Successfully Added",
+                        showConfirmButton: false,
+                        timer: 1500
+                    });
                 }
-                form.reset();
+                navigate("/")
             })
     }
     return (

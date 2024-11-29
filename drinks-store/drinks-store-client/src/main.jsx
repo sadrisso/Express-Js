@@ -6,6 +6,9 @@ import MainLayout from './layout/MainLayout';
 import Home from './components/Home';
 import AddDrinks from './components/AddDrinks';
 import UpdateDrinks from './components/UpdateDrinks';
+import SignIn from './components/SignIn';
+import SignUp from './components/SignUp';
+import AuthProvider from './provider/AuthProvider';
 
 const router = createBrowserRouter([
   {
@@ -24,7 +27,15 @@ const router = createBrowserRouter([
       {
         path: "/drinks/:id",
         element: <UpdateDrinks />,
-        loader: ({params}) => fetch(`http://localhost:9000/drinks/${params.id}`)
+        loader: ({ params }) => fetch(`http://localhost:9000/drinks/${params.id}`)
+      },
+      {
+        path: "/signin",
+        element: <SignIn />
+      },
+      {
+        path: "/signup",
+        element: <SignUp />
       }
     ]
   },
@@ -32,6 +43,8 @@ const router = createBrowserRouter([
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-    <RouterProvider router={router} />
+    <AuthProvider>
+      <RouterProvider router={router} />
+    </AuthProvider>
   </StrictMode>,
 )

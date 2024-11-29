@@ -1,8 +1,10 @@
-import { useLoaderData } from "react-router-dom";
+import { useLoaderData, useNavigate } from "react-router-dom";
+import Swal from "sweetalert2";
 
 const UpdateDrinks = () => {
 
     const updateItem = useLoaderData()
+    const navigate = useNavigate()
     const { _id, drinkName, description } = updateItem;
 
     const handleUpdate = (e) => {
@@ -25,6 +27,16 @@ const UpdateDrinks = () => {
             .then(res => res.json())
             .then(data => {
                 console.log(data)
+                if (data.modifiedCount > 0) {
+                    Swal.fire({
+                        position: "top-end",
+                        icon: "success",
+                        title: "Successfully Updated",
+                        showConfirmButton: false,
+                        timer: 1500
+                    });
+                }
+                navigate("/")
             })
     }
 
