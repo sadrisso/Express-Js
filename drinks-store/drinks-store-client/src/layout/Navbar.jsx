@@ -6,7 +6,7 @@ const Navbar = () => {
     const links = <div className='flex gap-5 text-[16px]'>
         <Link to="/">Home</Link>
         <Link to="/addDrinks">Add Drinks</Link>
-        <Link to="/">Home</Link>
+        <Link to="/users">Users</Link>
     </div>
     return (
         <div>
