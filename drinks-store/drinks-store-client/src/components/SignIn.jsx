@@ -13,7 +13,6 @@ const SignIn = () => {
         const email = form.email.value;
         const password = form.password.value;
 
-        const userInfo = { email, password }
 
         signIn(email, password)
             .then(userCredential => {
@@ -53,7 +52,7 @@ const SignIn = () => {
                         <div className="form-control mt-6">
                             <button className="btn btn-primary">Login</button>
                         </div>
-                        <p className='text-center'>Don't have an account? <Link to="/signup">SignUp</Link> </p>
+                        <p className='text-center text-xs text-blue-500'>Don't have an account? <Link to="/signup">SignUp</Link> </p>
                     </form>
                 </div>
             </div>

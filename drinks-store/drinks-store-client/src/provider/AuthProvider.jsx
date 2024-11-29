@@ -4,26 +4,22 @@ import { createUserWithEmailAndPassword, signInWithEmailAndPassword } from 'fire
 
 export const AuthContext = createContext(null)
 
-const AuthProvider = ({children}) => {
+const AuthProvider = ({ children }) => {
 
     const [user, setUser] = useState(null)
     const [loading, setLoading] = useState(false)
 
     const signUp = (email, password) => {
+        setLoading(true)
         return createUserWithEmailAndPassword(auth, email, password)
     }
 
     const signIn = (email, password) => {
+        setLoading(true)
         return signInWithEmailAndPassword(auth, email, password)
     }
 
-    const userInfo = {
-        user,
-        setUser,
-        loading,
-        signUp,
-        signIn,
-    }
+    const userInfo = { user, setUser, loading, setLoading, signIn, signUp }
 
     return (
         <div>

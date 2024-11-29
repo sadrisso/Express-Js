@@ -10,18 +10,28 @@ const SignUp = () => {
         e.preventDefault();
 
         const form = e.target;
+        const name = form.name.value;
         const email = form.email.value;
         const password = form.password.value;
-
-        const userInfo = { email, password }
-        console.log(userInfo)
 
         signUp(email, password)
             .then((userCredential) => {
                 const user = userCredential.user;
                 console.log(user)
                 setUser(user)
+                const userInfo = {name, email}
 
+                fetch("http://localhost:9000/users", {
+                    method: "POST",
+                    headers: {
+                        "content-type": "application/json"
+                    },
+                    body: JSON.stringify(userInfo)
+                })
+                    .then(res => res.json())
+                    .then(data => {
+                        console.log(data)
+                    })
             })
             .catch(err => {
                 console.log(err)
@@ -43,6 +53,12 @@ const SignUp = () => {
                     <form className="card-body" onSubmit={handleSingUp}>
                         <div className="form-control">
                             <label className="label">
+                                <span className="label-text">Name</span>
+                            </label>
+                            <input type="text" placeholder="name" name='name' className="input input-bordered" required />
+                        </div>
+                        <div className="form-control">
+                            <label className="label">
                                 <span className="label-text">Email</span>
                             </label>
                             <input type="email" placeholder="email" name='email' className="input input-bordered" required />
@@ -56,7 +72,7 @@ const SignUp = () => {
                         <div className="form-control mt-6">
                             <button className="btn btn-accent">SignUp</button>
                         </div>
-                        <p className='text-center'>Already have an account? <Link to="/signin">SignIn</Link> </p>
+                        <p className='text-center text-blue-500 text-xs'>Already have an account? <Link to="/signin">SignIn</Link> </p>
                     </form>
                 </div>
             </div>
