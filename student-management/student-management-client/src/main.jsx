@@ -4,6 +4,9 @@ import './css/index.css'
 import { createBrowserRouter, RouterProvider, } from "react-router-dom";
 import MainLayout from './layout/MainLayout';
 import Home from './components/Home';
+import AuthProvider from './provider/AuthProvider';
+import AddStudents from './components/AddStudents';
+import Login from './components/Login';
 
 const router = createBrowserRouter([
   {
@@ -21,6 +24,10 @@ const router = createBrowserRouter([
       {
         path: "/addStudents",
         element: <AddStudents />
+      },
+      {
+        path: "/login",
+        element: <Login />
       }
     ]
   },
@@ -28,6 +35,8 @@ const router = createBrowserRouter([
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-    <RouterProvider router={router} />
+    <AuthProvider>
+      <RouterProvider router={router} />
+    </AuthProvider>
   </StrictMode>,
 )
