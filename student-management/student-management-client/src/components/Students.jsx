@@ -5,9 +5,22 @@ const Students = () => {
 
     const loadedStudents = useLoaderData()
 
+    const handleRemove = id => {
+        fetch(`http://localhost:2000/students/${id}`, {
+            method: "DELETE"
+        })
+            .then(res => res.json())
+            .then(data => {
+                console.log(data)
+                if (data.deletedCount > 0) {
+                    alert("Deleted")
+                }
+            })
+    }
+
     return (
         <div>
-
+            <h1 className='text-3xl font-semibold text-center my-5'>Registered Students</h1>
             <div className="overflow-x-auto">
                 <table className="table">
                     {/* head */}
@@ -31,7 +44,7 @@ const Students = () => {
                                     <td>{student._id}</td>
                                     <td className='flex gap-2'>
                                         <button className='btn btn-accent'>Edit</button>
-                                        <button className='btn btn-error'>Delete</button>
+                                        <button className='btn btn-error' onClick={() => handleRemove(student._id)}>Delete</button>
                                     </td>
                                 </tr>)
                         }

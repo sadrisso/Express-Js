@@ -13,19 +13,19 @@ const Navbar = () => {
             })
     }
 
-    const links = <div className='flex gap-5'>
+    const links = <div className='flex gap-5 text-[16px]'>
         <Link to="/">Home</Link>
         <Link to="/students">Students</Link>
         <Link to="/addStudents">Add</Link>
         {
-            user ? <Link onClick={handleLogout}>LogOut</Link> : <Link to="/login">Login</Link>
+            user ? <Link onClick={handleLogout} className='text-red-600'>LogOut</Link> : <Link to="/login" className='text-green-600'>Login</Link>
         }
     </div>
 
 
     return (
         <div>
-            <div className="navbar bg-base-100">
+            <div className="navbar bg-purple-800 text-white">
                 <div className="navbar-start">
                     <div className="dropdown">
                         <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
