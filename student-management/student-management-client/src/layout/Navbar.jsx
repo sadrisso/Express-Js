@@ -1,14 +1,25 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
+import { AuthContext } from '../provider/AuthProvider';
 
 const Navbar = () => {
 
+    const { user, logOut } = useContext(AuthContext);
+
+    const handleLogout = () => {
+        logOut()
+            .then(() => {
+                console.log("Logged Out")
+            })
+    }
 
     const links = <div className='flex gap-5'>
         <Link to="/">Home</Link>
         <Link to="/students">Students</Link>
         <Link to="/addStudents">Add</Link>
-        <Link to="/login">Login</Link>
+        {
+            user ? <Link onClick={handleLogout}>LogOut</Link> : <Link to="/login">Login</Link>
+        }
     </div>
 
 
