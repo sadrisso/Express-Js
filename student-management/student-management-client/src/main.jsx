@@ -7,6 +7,7 @@ import Home from './components/Home';
 import AuthProvider from './provider/AuthProvider';
 import AddStudents from './components/AddStudents';
 import Login from './components/Login';
+import Students from './components/Students';
 
 const router = createBrowserRouter([
   {
@@ -19,7 +20,8 @@ const router = createBrowserRouter([
       },
       {
         path: "/students",
-        element: <h2>Students</h2>
+        element: <Students />,
+        loader: () => fetch("http://localhost:2000/students")
       },
       {
         path: "/addStudents",

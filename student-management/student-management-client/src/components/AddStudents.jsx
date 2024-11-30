@@ -13,6 +13,7 @@ const AddStudents = () => {
         const name = form.name.value;
         const email = form.email.value;
         const password = form.password.value;
+        const lastLoginTime = "";
 
         const studentInfo = { name, email }
         console.log(studentInfo)
@@ -20,7 +21,7 @@ const AddStudents = () => {
         addStudent(email, password)
             .then((res) => {
                 console.log(res.user)
-                const studentInfo = { name, email }
+                const studentInfo = { name, email, lastLoginTime }
 
                 fetch("http://localhost:2000/students", {
                     method: "POST",
