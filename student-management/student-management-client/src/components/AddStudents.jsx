@@ -20,7 +20,7 @@ const AddStudents = () => {
 
         addStudent(email, password)
             .then((res) => {
-                console.log(res.user)
+                console.log("Successfully Registered: ", res.user)
                 const studentInfo = { name, email, lastLoginTime }
 
                 fetch("http://localhost:2000/students", {
