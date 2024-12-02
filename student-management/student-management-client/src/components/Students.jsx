@@ -1,9 +1,10 @@
-import React from 'react';
-import { useLoaderData } from 'react-router-dom';
+import React, { useState } from 'react';
+import { Link, useLoaderData } from 'react-router-dom';
 
 const Students = () => {
 
     const loadedStudents = useLoaderData()
+    const [students, setStudents] = useState(loadedStudents)
 
     const handleRemove = id => {
         fetch(`http://localhost:2000/students/${id}`, {
@@ -15,6 +16,8 @@ const Students = () => {
                 if (data.deletedCount > 0) {
                     alert("Deleted")
                 }
+                const remaining = students.map((student) => student._id !== id);
+                setStudents(remaining)
             })
     }
 
@@ -26,7 +29,7 @@ const Students = () => {
                     {/* head */}
                     <thead>
                         <tr>
-                            <th></th>
+                            <th>No.</th>
                             <th>Name</th>
                             <th>Email</th>
                             <th>_id</th>
@@ -36,14 +39,14 @@ const Students = () => {
                     <tbody>
 
                         {
-                            loadedStudents.map((student, i) =>
+                            students.map((student, i) =>
                                 <tr key={i}>
-                                    <th></th>
+                                    <th>{i + 1}</th>
                                     <td>{student.name}</td>
                                     <td>{student.email}</td>
                                     <td>{student._id}</td>
                                     <td className='flex gap-2'>
-                                        <button className='btn btn-accent'>Edit</button>
+                                        <Link to={`/students/${student._id}`}><button className='btn btn-accent'>Edit</button></Link>
                                         <button className='btn btn-error' onClick={() => handleRemove(student._id)}>Delete</button>
                                     </td>
                                 </tr>)

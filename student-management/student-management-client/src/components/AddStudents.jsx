@@ -73,7 +73,7 @@ const AddStudents = () => {
                                 <input type="password" placeholder="password" name='password' className="input input-bordered" required />
                             </div>
                             <div className="form-control mt-6">
-                                <button className="btn btn-primary">Register</button>
+                                <button className="btn btn-info">Register</button>
                             </div>
                             <p>Already have an account? <Link to="/login">Login</Link></p>
                         </form>
