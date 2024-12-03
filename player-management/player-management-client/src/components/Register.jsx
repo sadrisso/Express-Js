@@ -16,11 +16,20 @@ const Register = () => {
         const email = form.email.value;
         const password = form.password.value;
 
-        const registerInfo = { name, email, password }
+        const registerInfo = { name, email }
 
         createUser(email, password)
             .then((res) => {
                 console.log("Registered User : ", res.user)
+
+                fetch("http://localhost:4000/users", {
+                    method: "POST",
+                    headers: { "content-type": "application/json" },
+                    body: JSON.stringify(registerInfo)
+                })
+                    .then((res) => res.json())
+                    .then((data) => console.log(data))
+
                 updateUser({ displayName: name })
                     .then(() => {
                         console.log("Profile Updated")
