@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useLoaderData } from 'react-router-dom';
+import { Link, useLoaderData } from 'react-router-dom';
 
 const Users = () => {
 
@@ -13,6 +13,9 @@ const Users = () => {
             .then(res => res.json())
             .then(data => {
                 console.log(data)
+                if (data.deletedCount>0){
+                    alert("successful")
+                }
             })
             const remainingUsers = users.filter((user) => user._id !== id);
             setUsers(remainingUsers)
@@ -37,7 +40,7 @@ const Users = () => {
                             <td>{user.name}</td>
                             <td>{user.email}</td>
                             <td className='flex gap-2'>
-                                <button className='btn btn-sm'>Edit</button>
+                                <Link to={`/users/${user._id}`}><button className='btn btn-sm'>Edit</button></Link>
                                 <button className='btn btn-sm' onClick={() => handleRemove(user._id)}>Delete</button>
                             </td>
                         </tr>)}
