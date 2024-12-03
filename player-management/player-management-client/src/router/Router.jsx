@@ -5,6 +5,8 @@ import Home from "../components/Home";
 import PopularTeams from "../components/PopularTeams";
 import Register from "../components/Register";
 import Login from "../components/Login";
+import Profile from "../pages/Profile";
+import PrivateRoute from "./PrivateRoute";
 
 export const router = createBrowserRouter([
     {
@@ -28,6 +30,10 @@ export const router = createBrowserRouter([
             {
                 path: "/login",
                 element: <Login />
+            },
+            {
+                path: "/profile",
+                element: <PrivateRoute><Profile /></PrivateRoute>
             }
         ]
     }
