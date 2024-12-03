@@ -1,11 +1,12 @@
 import { useContext } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../Provider/AuthProvider";
 
 
 const Navbar = () => {
 
     const { user, logout } = useContext(AuthContext)
+    const navigate = useNavigate()
 
     const links = <div className="flex gap-5">
         <Link to="/">Home</Link>
@@ -18,6 +19,7 @@ const Navbar = () => {
         logout()
             .then(() => {
                 console.log("User signed out successfull")
+                navigate("/login")
             })
             .catch((err) => {
                 console.log("ERR: ", err)
