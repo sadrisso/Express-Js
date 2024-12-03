@@ -29,6 +29,9 @@ async function run() {
 
         const playerCollection = client.db("playerDB").collection("players")
 
+
+
+        //API STARTS FROM HERE...........................
         app.post("/users", async (req, res) => {
             const user = req.body;
             const result = await playerCollection.insertOne(user)
@@ -40,6 +43,10 @@ async function run() {
             const result = await cursor.toArray();
             res.send(result)
         })
+        //API ENDS HERE..................................
+
+
+
 
         await client.db("admin").command({ ping: 1 });
         console.log("Pinged your deployment. You successfully connected to MongoDB!");
